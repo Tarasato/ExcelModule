@@ -33,7 +33,7 @@ Sub HighlightMissingFields()
 
             ' Check for blank/space-only cells
             If Trim(cell.Value) = "" Then
-                cell.Interior.Color = RGB(255, 0, 0) ' Light red
+                cell.Interior.Color = RGB(255, 0, 0) ' red
                 missingList = missingList & header & ", "
                 isComplete = False
             End If
@@ -43,10 +43,10 @@ Sub HighlightMissingFields()
         With ws.Cells(i, outputCol)
             .Interior.ColorIndex = xlNone ' Clear any previous color
             If isComplete Then
-                .Value = "All fields are filled."
-                .Interior.Color = RGB(17, 255, 0) ' Light green
+                .Value = "ALL FIELDS ARE FILLED"
+                .Interior.Color = RGB(17, 255, 0) ' green
             Else
-                .Value = "Missing: " & Left(missingList, Len(missingList) - 2)
+                .Value = Left(missingList, Len(missingList) - 2)
             End If
         End With
     Next i
